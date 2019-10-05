@@ -34,7 +34,23 @@ class Matrix {
         var result = null;
         // ensure multiplication is valid
         if (rhs instanceof Matrix && this.columns === rhs.rows) {
-            // implement matrix multiplication here!
+            let newMatrix = new Matrix(this.rows, rhs.columns);
+            let values = [];
+            for (let row = 0; row < this.rows; row++) {
+                let valueRow = [];
+                for (let i = 0; i < rhs.columns; i++) {
+                    result = 0;
+                    for (let col = 0; col < this.columns; col++) {
+                        let matrix1Value = this.data[row][col];
+                        let matrix2Value = rhs.data[col][i];
+                        result += matrix1Value * matrix2Value;
+                    }
+                    valueRow.push(result);
+                }
+                values.push(valueRow);
+            }
+            newMatrix.values = values;
+            result = newMatrix;
         }
         else {
             console.log("could not multiply - row/column mismatch");
@@ -59,4 +75,4 @@ Matrix.multiply = function(...args) {
         console.log("could not multiply - requires at least 2 matrices");
     }
     return result;
-}
+};

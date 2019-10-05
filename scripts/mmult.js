@@ -26,7 +26,7 @@ function MultiplyMatrices() {
         let mat = new Matrix(nrows, ncols);
         let values = [];
         for (let r = 0; r < nrows; r++) {
-            let value_row = []
+            let value_row = [];
             for (let c = 0; c < ncols; c++) {
                 let cell = document.getElementById('mat' + i + '_cell_' + r + '_' + c);
                 let num = parseInt(cell.value, 10) || 0;
@@ -134,6 +134,7 @@ function CreateMatrixInput(index) {
             input.id = 'mat' + index + '_cell_' + i + '_' + j;
             input.type = 'text';
             input.style.width = '2rem';
+            input.value = (i+1) * (j+1); // REMOVE THIS
             cell.appendChild(input);
         }
     }
@@ -167,6 +168,7 @@ function UpdateMatrixDimensions(event) {
             input.id = 'mat' + index + '_cell_' + i + '_' + j;
             input.type = 'text';
             input.style.width = '2rem';
+            input.value = (i+1) * (j+1); // REMOVE THIS
             cell.appendChild(input);
         }
     }
