@@ -34,13 +34,13 @@ class Matrix {
         var result = null;
         // ensure multiplication is valid
         if (rhs instanceof Matrix && this.columns === rhs.rows) {
-            let newMatrix = new Matrix(this.rows, rhs.columns);
-            let values = [];
-            for (let row = 0; row < this.rows; row++) {
-                let valueRow = [];
-                for (let i = 0; i < rhs.columns; i++) {
-                    result = 0;
-                    for (let col = 0; col < this.columns; col++) {
+            let newMatrix = new Matrix(this.rows, rhs.columns); // new matrix to hold products from multiplying matrices
+            let values = []; // holds each row of values as arrays to put into new matrix
+            for (let row = 0; row < this.rows; row++) { // loop through rows of first matrix
+                let valueRow = []; // values held in a row
+                for (let i = 0; i < rhs.columns; i++) { // loop through columns of second matrix
+                    result = 0; // value after adding all products together from row and column multiplication 
+                    for (let col = 0; col < this.columns; col++) { // loop through columns of first matrix
                         let matrix1Value = this.data[row][col];
                         let matrix2Value = rhs.data[col][i];
                         result += matrix1Value * matrix2Value;
