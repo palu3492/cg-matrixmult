@@ -1,0 +1,8 @@
+Assignment 2 - Matrix Multiplication Calculator
+
+Rubric checklist:
+My implementation of matrix multiplication with arbitrary matrices up to 4x4 properly multiplies a matrix by a column vector (15 pts). It also properly multiplies any two matrices  (5 pts).
+Expected score: 20 / 20.
+
+Repo: https://github.com/palu3492/cg-matrixmult
+Website: https://palu3492.github.io/cg-matrixmult/

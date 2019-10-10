@@ -134,7 +134,6 @@ function CreateMatrixInput(index) {
             input.id = 'mat' + index + '_cell_' + i + '_' + j;
             input.type = 'text';
             input.style.width = '2rem';
-            input.value = (i+1) * (j+1); // REMOVE THIS
             cell.appendChild(input);
         }
     }
@@ -168,7 +167,6 @@ function UpdateMatrixDimensions(event) {
             input.id = 'mat' + index + '_cell_' + i + '_' + j;
             input.type = 'text';
             input.style.width = '2rem';
-            input.value = (i+1) * (j+1); // REMOVE THIS
             cell.appendChild(input);
         }
     }

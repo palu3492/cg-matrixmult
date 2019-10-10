@@ -34,18 +34,18 @@ class Matrix {
         var result = null;
         // ensure multiplication is valid
         if (rhs instanceof Matrix && this.columns === rhs.rows) {
-            let newMatrix = new Matrix(this.rows, rhs.columns); // new matrix to hold products from multiplying matrices
-            let values = []; // holds each row of values as arrays to put into new matrix
+            let newMatrix = new Matrix(this.rows, rhs.columns); // new matrix that is the matrix product
+            let values = []; // array of rows in the new matrix product
             for (let row = 0; row < this.rows; row++) { // loop through rows of first matrix
-                let valueRow = []; // values held in a row
-                for (let i = 0; i < rhs.columns; i++) { // loop through columns of second matrix
-                    result = 0; // value after adding all products together from row and column multiplication 
-                    for (let col = 0; col < this.columns; col++) { // loop through columns of first matrix
-                        let matrix1Value = this.data[row][col];
-                        let matrix2Value = rhs.data[col][i];
-                        result += matrix1Value * matrix2Value;
+                let valueRow = []; // values of a row as an array
+                for (let m2c = 0; m2c < rhs.columns; m2c++) { // loop through columns of second matrix
+                    let products = 0; // value after adding all products together from row and column multiplication
+                    for (let m1c = 0; m1c < this.columns; m1c++) { // loop through columns of first matrix
+                        let matrix1Value = this.data[row][m1c]; // value from first matrix at specified row and column
+                        let matrix2Value = rhs.data[m1c][m2c]; // value from second matrix at specified column as row and second matrix column
+                        products += matrix1Value * matrix2Value;
                     }
-                    valueRow.push(result);
+                    valueRow.push(products);
                 }
                 values.push(valueRow);
             }
